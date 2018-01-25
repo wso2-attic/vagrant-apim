@@ -20,12 +20,12 @@ boxes:
     ip: 172.28.128.3
     provisioner_script: mysql/provisioner/provisioner.sh
   -
-    output_box: wso2apim
+    output_box: wso2am
     base_box: ubuntu/trusty64
     ip: 172.28.128.4
     provisioner_script: api-manager/provisioner/provisioner.sh
   -
-    output_box: wso2apim-analytics
+    output_box: wso2am-analytics
     base_box: ubuntu/trusty64
     ip: 172.28.128.5
     provisioner_script: api-manager-analytics/provisioner/provisioner.sh
