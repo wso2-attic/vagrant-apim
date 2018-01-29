@@ -17,7 +17,7 @@ git clone https://github.com/wso2/vagrant-apim
 
 ##### 2. Build Vagrant boxes for external MySQL database, WSO2 API Manager and API Manager Analytics using the Vagrant box automation resources.
 
-##### 3. Move to `machines` folder.
+##### 3. Move to `vagrantfiles` folder.
 
     cd vagrantfiles
 
