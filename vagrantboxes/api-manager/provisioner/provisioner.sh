@@ -86,7 +86,6 @@ fi
 # add the MySQL driver
 echo "Copying the MySQL driver to the ${WORKING_DIRECTORY}"
 cp ${SOFTWARE_DISTRIBUTIONS}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}
-
 echo "Successfully copied the MySQL driver to the server pack."
 
 # set ownership of the working directory to the default ssh user and group
