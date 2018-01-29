@@ -19,7 +19,7 @@ git clone https://github.com/wso2/vagrant-apim
 
 ##### 3. Move to `machines` folder.
 
-    cd machines
+    cd vagrantfiles
 
 ##### 4. Spawn up the Vagrant setup.
 
