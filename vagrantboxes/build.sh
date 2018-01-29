@@ -32,4 +32,4 @@ do
     vagrant package $box --output output/$box.box
 done
 
-vagrant destroy
+vagrant destroy -f
