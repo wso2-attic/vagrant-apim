@@ -35,7 +35,7 @@ The created box files can be found in the output directory. In order to add a cr
 
     vagrant box add <BOX_NAME> <BOX_FILE_PATH>
 
-An example for adding the created WSO2 Enterprise Integrator Vagrant box file (by default, defined
+An example for adding the created WSO2 API Manager Vagrant box file (by default, defined
 within the `config.yaml` file) is as follows:
 
     vagrant box add wso2am output/wso2am.box
