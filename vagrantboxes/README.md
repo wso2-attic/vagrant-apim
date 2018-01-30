@@ -1,6 +1,6 @@
 # Vagrant box generation
 
-This section defines the procedure to build Vagrant boxes required for WSO2 Stream Processor 2.1.0
+This section defines the procedure to build Vagrant boxes required for WSO2 API Manager 2.1.0
 
 Please note that in order to build these Vagrant boxes, you need to install
 [Oracle VM VirtualBox](http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html),
