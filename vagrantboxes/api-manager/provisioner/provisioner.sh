@@ -44,8 +44,7 @@ if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${JDK_ARCHIVE} ]; then
 fi
 
 if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${WUM_ARCHIVE} ]; then
-    echo "WUM archive file not found. Please copy the WUM archive file to ${SOFTWARE_DISTRIBUTIONS} folder and retry."
-    exit 1
+    echo "WUM archive file not found. Box will not contain WUM support."
 fi
 
 if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${MYSQL_CONNECTOR} ]; then
