@@ -19,12 +19,14 @@ WSO2_SERVER=wso2am-analytics
 WSO2_SERVER_VERSION=2.1.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
+WUM_ARCHIVE=wum-1.0-linux-x64.tar.gz
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
 
 DEFAULT_MOUNT=/vagrant
 SOFTWARE_DISTRIBUTIONS=${DEFAULT_MOUNT}/files
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java
+WUM_HOME=/usr/local
 DEFAULT_USER=vagrant
 
 
@@ -40,6 +42,11 @@ fi
 if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${JDK_ARCHIVE} ]; then
     echo "JDK archive file not found. Please copy the JDK archive file to ${SOFTWARE_DISTRIBUTIONS} folder and retry."
     exit 1
+fi
+
+
+if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${WUM_ARCHIVE} ]; then
+    echo "WUM archive file not found. Box will not contain WUM support."
 fi
 
 if [ ! -f ${SOFTWARE_DISTRIBUTIONS}/${MYSQL_CONNECTOR} ]; then
@@ -62,16 +69,25 @@ if test -d ${JAVA_HOME}; then
 fi
 echo "Successfully set up Java"
 
-# unpack the WSO2 product pack to the working directory
-echo "Setting up the ${WSO2_SERVER}-${WSO2_SERVER_VERSION} server..."
-if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
-  unzip -q ${DEFAULT_MOUNT}/files/${WSO2_SERVER_PACK} -d ${WORKING_DIRECTORY}
+# set up WUM
+echo "Setting up WUM..."
+if test ! -d ${WUM_HOME}; then mkdir ${WUM_HOME}; fi
+if test -d ${WUM_HOME}; then
+  tar -xzf ${SOFTWARE_DISTRIBUTIONS}/${WUM_ARCHIVE} -C ${WUM_HOME} --strip-components=1
+  echo "Successfully set up WUM"
 fi
-echo "Successfully set up ${WSO2_SERVER}-${WSO2_SERVER_VERSION} server"
+
+# moving the WSO2 product pack to the working directory
+echo "Moving the ${WSO2_SERVER_PACK} to the directory: ${WORKING_DIRECTORY}..."
+if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
+  mv ${DEFAULT_MOUNT}/files/${WSO2_SERVER_PACK} ${WORKING_DIRECTORY}
+  echo "Successfully moved ${WSO2_SERVER_PACK} to ${WORKING_DIRECTORY}"
+fi
 
 # add the MySQL driver
-echo "Copying the MySQL driver to the server pack..."
-cp ${SOFTWARE_DISTRIBUTIONS}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/lib/${MYSQL_CONNECTOR}
+echo "Copying the MySQL driver to the ${WORKING_DIRECTORY}"
+cp ${SOFTWARE_DISTRIBUTIONS}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}
+
 echo "Successfully copied the MySQL driver to the server pack."
 
 # set ownership of the working directory to the default ssh user and group
