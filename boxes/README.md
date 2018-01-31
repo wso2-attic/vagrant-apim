@@ -25,9 +25,9 @@ Note: Adding WSO2 Update Manager is optional. Read more about [WSO2 Update Manag
 
     ~/vagrantboxes/files/
 
-3. Move to `vagrantboxes` folder.
+3. Move to `boxes` folder.
 
-    	cd vagrantboxes
+    	cd boxes
 
 4. Execute the build.sh shell script.
 
