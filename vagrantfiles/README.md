@@ -12,16 +12,20 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 ## How to run the Vagrantfile
 
 1. Checkout this repository into your local machine using the following Git command.
+
 ```
-https://github.com/wso2/vagrant-apim.git
+    https://github.com/wso2/vagrant-apim.git
 ```
 
 2. Build Vagrant boxes for external MySQL database, WSO2 API Manager and API Manager Analytics using the Vagrant box automation resources.
 
 3. Move to `vagrantfiles` folder.
 
+```
     cd vagrantfiles
-
+```
 4. Spawn up the Vagrant setup.
 
+```
     vagrant up
+```
