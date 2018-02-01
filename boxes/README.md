@@ -23,7 +23,7 @@ Virtualization should be enabled in the BIOS before building the boxes.
 
 Note: Adding WSO2 Update Manager is optional. Read more about [WSO2 Update Manager](https://wso2.com/wum/).
 ```
-	~/vagrantboxes/files/
+	~/boxes/files/
 ```
 3. Move to `boxes` folder.
 ```
