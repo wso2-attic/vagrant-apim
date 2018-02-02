@@ -3,6 +3,8 @@
 This section defines the procedure to execute run Vagrant resources for a setup of WSO2 API Manager single
 node with Analytics support.
 
+![Deployment architecture](deployment-diagram.png)
+
 Please note that in order to run these Vagrant resources use, you need to install
 [Oracle VM VirtualBox](http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html),
 as Vagrant uses Oracle VM VirtualBox as the default provider.
