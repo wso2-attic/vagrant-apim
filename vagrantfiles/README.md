@@ -21,10 +21,10 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 
 2. Build Vagrant boxes for external MySQL database, WSO2 API Manager and API Manager Analytics using the Vagrant box automation resources.
 
-3. Move to `vagrantfiles` folder.
+3. Move to `vagrantfile` folder.
 
 ```
-    cd vagrantfiles
+    cd vagrantfile
 ```
 4. Spawn up the Vagrant setup.
 
