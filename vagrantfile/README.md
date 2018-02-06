@@ -1,6 +1,6 @@
 # Vagrantfile for WSO2 API Manager
 
-This section defines the procedure to execute run Vagrant resources for a setup of WSO2 API Manager single
+This section defines the procedure to run Vagrant resources for a setup of WSO2 API Manager single
 node with Analytics support.
 
 ![Deployment architecture](deployment-diagram.png)
