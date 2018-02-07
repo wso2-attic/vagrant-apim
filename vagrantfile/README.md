@@ -1,5 +1,6 @@
 # Vagrantfile for WSO2 API Manager
 
+
 This section defines the procedure to run Vagrant resources for a setup of WSO2 API Manager single
 node with Analytics support.
 
