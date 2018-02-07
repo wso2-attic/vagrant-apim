@@ -23,6 +23,7 @@ DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager-analytics/confs
 NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 
+
 #setting up the server
 if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
   unzip -q ${WORKING_DIRECTORY}/${WSO2_SERVER_PACK} -d ${WORKING_DIRECTORY}
@@ -33,7 +34,6 @@ fi
 echo "Copying the MySQL driver to the server pack..."
 cp ${WORKING_DIRECTORY}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/lib/${MYSQL_CONNECTOR}
 echo "Successfully copied the MySQL driver to the server pack."
-
 
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
