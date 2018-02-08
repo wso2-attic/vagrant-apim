@@ -32,3 +32,17 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 ```
     vagrant up
 ```
+
+5. Access the API Publisher and Store via the URLs given below.
+
+* API Publisher
+
+```
+    https://https://172.28.128.4:9443/publisher
+```
+
+* API Store
+
+```
+    https://https://172.28.128.4:9443/store/
+```
