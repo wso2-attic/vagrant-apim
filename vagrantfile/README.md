@@ -38,11 +38,23 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 * API Publisher
 
 ```
-    https://172.28.128.4:9443/publisher
+    https://172.28.128.4:9443/publisher/
 ```
 
 * API Store
 
 ```
     https://172.28.128.4:9443/store/
+```
+
+* Carbon
+
+```
+    https://172.28.128.4:9443/carbon/
+```
+
+* Admin
+
+```
+    https://172.28.128.4:9443/admin/
 ```
