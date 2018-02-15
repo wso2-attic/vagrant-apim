@@ -63,7 +63,7 @@ echo "Successfully set up Java"
 # moving the WSO2 product pack to the working directory
 echo "Moving the ${WSO2_SERVER_PACK} to the directory: ${WORKING_DIRECTORY}..."
 if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
-  mv ${DEFAULT_MOUNT}/files/${WSO2_SERVER_PACK} ${WORKING_DIRECTORY}
+  mv ${SOFTWARE_DISTRIBUTIONS}/${WSO2_SERVER_PACK} ${WORKING_DIRECTORY}
   echo "Successfully moved ${WSO2_SERVER_PACK} to ${WORKING_DIRECTORY}"
 fi
 
