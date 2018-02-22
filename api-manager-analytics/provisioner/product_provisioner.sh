@@ -34,19 +34,16 @@ echo "Successfully installed software utilities."
 
 #setting up Java
 echo "Setting up Java."
-if test ! -d ${JAVA_HOME}; then mkdir ${JAVA_HOME}; fi
-if test -d ${JAVA_HOME}; then
-  tar -xf ${WORKING_DIRECTORy}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
+if test ! -d ${JAVA_HOME}; then
+  then mkdir ${JAVA_HOME};
+  tar -xf ${WORKING_DIRECTORY}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
   echo "Successfully set up Java"
-else
-  echo "Setting up Java failed."
-  exit 1
 fi
 
 # set up wum
 echo "Setting up WUM."
-if test ! -d ${WUM_HOME}; then mkdir ${WUM_HOME}; fi
-if test -d ${WUM_HOME}; then
+if test ! -d ${WUM_HOME}; then
+  mkdir ${WUM_HOME};
   tar -xf ${WORKING_DIRECTORY}/${WUM_ARCHIVE} -C ${WUM_HOME} --strip-components=1
   echo "Successfully set up WUM."
 fi
