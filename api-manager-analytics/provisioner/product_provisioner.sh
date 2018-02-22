@@ -21,6 +21,8 @@ JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
 WUM_ARCHIVE=wum-1.0-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
+WUM_HOME=/usr/local
+WUM_PATH=PATH=$PATH:/usr/local/wum/bin
 DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager-analytics/confs
 NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
@@ -66,6 +68,7 @@ cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-$
 echo "Successfully copied the files."
 
 export JAVA_HOME
+export WUM_PATH
 
 # start the WSO2 product pack as a background service
 echo "Starting ${WSO2_SERVER}-${WSO2_SERVER_VERSION}..."
