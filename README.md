@@ -14,24 +14,30 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 
 ## How to run the Vagrantfile
 
-1. Checkout this repository into your local machine using the following Git command.
+1. Follow the instructions in this repository to build the WSO2 API Manager 2.1.0, WSO2 API Manager Analytics 2.1.0, and MySQL Vagrant boxes.
+
+```
+    https://github.com/wso2/vagrant-boxes
+```
+
+2. Checkout this repository into your local machine using the following Git command.
 
 ```
     https://github.com/wso2/vagrant-apim.git
 ```
 
-2. Move to `vagrant-apim` folder.
+3. Move to `vagrant-apim` folder.
 
 ```
     cd vagrant-apim
 ```
-3. Spawn up the Vagrant setup.
+4. Spawn up the Vagrant setup.
 
 ```
     vagrant up
 ```
 
-4. Access the API Publisher and Store via the URLs given below.
+5. Access the API Publisher and Store via the URLs given below.
 
 * API Publisher
 
