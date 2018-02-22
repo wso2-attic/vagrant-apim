@@ -17,12 +17,37 @@ WSO2_SERVER=wso2am-analytics
 WSO2_SERVER_VERSION=2.1.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
+JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
+WUM_ARCHIVE=wum-1.0-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
 DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager-analytics/confs
 NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 
+# install utility software
+echo "Installing software utilities."
+apt-get install unzip
+echo "Successfully installed software utilities."
+
+#setting up Java
+echo "Setting up Java."
+if test ! -d ${JAVA_HOME}; then mkdir ${JAVA_HOME}; fi
+if test -d ${JAVA_HOME}; then
+  tar -xf ${WORKING_DIRECTOR}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
+  echo "Successfully set up Java"
+else
+  echo "Setting up Java failed."
+  exit 1
+fi
+
+# set up wum
+echo "Setting up WUM."
+if test ! -d ${WUM_HOME}; then mkdir ${WUM_HOME}; fi
+if test -d ${WUM_HOME}; then
+  tar -xf ${WORKING_DIRECTORY}/${WUM_ARCHIVE} -C ${WUM_HOME} --strip-components=1
+  echo "Successfully set up WUM."
+fi
 
 #setting up the server
 if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
