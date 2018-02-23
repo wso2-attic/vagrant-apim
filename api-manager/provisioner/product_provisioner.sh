@@ -62,7 +62,6 @@ echo "Successfully copied the MySQL driver to the server pack."
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
 cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
-cp -TRv ${CONFIGURATIONS}/repository/deployment/server/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/deployment/server/
 echo "Successfully copied the files."
 
 export JAVA_HOME
