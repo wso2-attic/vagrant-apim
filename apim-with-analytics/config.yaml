@@ -36,8 +36,3 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
-
-
-
-
-

@@ -25,7 +25,6 @@ WUM_HOME=/usr/local
 WUM_PATH=PATH=$PATH:/usr/local/wum/bin
 DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager-analytics/confs
-NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 
 # install utility software
 echo "Installing software utilities."
@@ -82,4 +81,5 @@ do
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
 
-echo "Management console URL: https://${NODE_IP}:9443/carbon"
+echo "Management console URL: https://172.28.128.6:9443/carbon"
+
