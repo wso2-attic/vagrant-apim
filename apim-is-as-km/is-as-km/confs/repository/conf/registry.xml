@@ -38,7 +38,7 @@
     <remoteInstance url="https://localhost">
         <id>gov</id>
         <dbConfig>carbondb</dbConfig>
-        <cacheId>root@jdbc:mysql://172.28.128.3:3306/carbon_db</cacheId>
+        <cacheId>jdbc:mysql://172.28.128.3:3306/carbon_db</cacheId>
         <readOnly>false</readOnly>
         <enableCache>true</enableCache>
         <registryRoot>/</registryRoot>
