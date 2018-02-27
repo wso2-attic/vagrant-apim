@@ -13,7 +13,7 @@
 # limitations under the License
 
 # set variables
-WSO2_SERVER=wso2am
+WSO2_SERVER=wso2am-analytics
 WSO2_SERVER_VERSION=2.1.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
@@ -24,8 +24,7 @@ JAVA_HOME=/opt/java/
 WUM_HOME=/usr/local
 WUM_PATH=PATH=$PATH:/usr/local/wum/bin
 DEFAULT_MOUNT=/vagrant
-CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager/confs
-NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager-analytics/confs
 
 # install utility software
 echo "Installing software utilities."
@@ -35,11 +34,7 @@ echo "Successfully installed software utilities."
 #setting up Java
 echo "Setting up Java."
 if test ! -d ${JAVA_HOME}; then
-<<<<<<< HEAD
-  then mkdir ${JAVA_HOME};
-=======
   mkdir ${JAVA_HOME};
->>>>>>> 7b4633952550330ab9e4fad4db6c651655d050e2
   tar -xf ${WORKING_DIRECTORY}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
   echo "Successfully set up Java"
 fi
@@ -66,7 +61,6 @@ echo "Successfully copied the MySQL driver to the server pack."
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
 cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
-cp -TRv ${CONFIGURATIONS}/repository/deployment/server/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/deployment/server/
 echo "Successfully copied the files."
 
 export JAVA_HOME
@@ -87,4 +81,5 @@ do
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
 
-echo "Management console URL: https://${NODE_IP}:9443/carbon"
+echo "Management console URL: https://172.28.128.5:9444/carbon"
+

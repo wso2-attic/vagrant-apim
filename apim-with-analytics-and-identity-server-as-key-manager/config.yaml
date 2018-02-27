@@ -13,13 +13,13 @@
 # limitations under the License.
 
 servers:
- -
-   hostname: mysql
-   box: mysql
-   ip: 172.28.128.3
-   ram: 2048
-   cpu: 1
-   provisioner_script: mysql/provisioner/db_provisioner.sh
+  -
+    hostname: mysql
+    box: mysql
+    ip: 172.28.128.3
+    ram: 2048
+    cpu: 1
+    provisioner_script: mysql/provisioner/db_provisioner.sh
 
   -
     hostname: api-manager-analytics
@@ -29,14 +29,21 @@ servers:
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
 
--
-   hostname: api-manager
-  box: wso2am
-   ip: 172.28.128.4
-   ram: 2048
-   cpu: 1
-   provisioner_script: api-manager/provisioner/product_provisioner.sh
+  -
+    hostname: is-as-km
+    box: wso2am-is-as-km
+    ip: 172.28.128.6
+    ram: 2048
+    cpu: 1
+    provisioner_script: is-as-km/provisioner/product_provisioner.sh
 
+  -
+    hostname: api-manager
+    box: wso2am
+    ip: 172.28.128.4
+    ram: 2048
+    cpu: 1
+    provisioner_script: api-manager/provisioner/product_provisioner.sh
 
 
 

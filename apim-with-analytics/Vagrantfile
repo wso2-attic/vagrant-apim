@@ -19,7 +19,6 @@ require 'fileutils'
 require 'uri'
 require 'erb'
 
-$stdout.puts "//todo:"
 $stdout.print "login: "
 USERNAME = $stdin.gets.chomp
 $stdout.print "password: "
@@ -79,3 +78,4 @@ Vagrant.configure(2) do |config|
     end
   end
 end
+
