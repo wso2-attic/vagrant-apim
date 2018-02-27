@@ -25,7 +25,6 @@ WUM_HOME=/usr/local
 WUM_PATH=PATH=$PATH:/usr/local/wum/bin
 DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager/confs
-NODE_IP=$(/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 
 # install utility software
 echo "Installing software utilities."
@@ -62,6 +61,7 @@ echo "Successfully copied the MySQL driver to the server pack."
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
 cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
+cp -TRv ${CONFIGURATIONS}/bin/wso2server.sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/bin/wso2server.sh
 echo "Successfully copied the files."
 
 export JAVA_HOME
@@ -82,4 +82,5 @@ do
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
 
-echo "Management console URL: https://${NODE_IP}:9443/carbon"
+echo "Management console URL: https://172.28.128.4:9443/carbon"
+
