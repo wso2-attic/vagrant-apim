@@ -29,20 +29,6 @@ servers:
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
 
-<<<<<<< HEAD:config.yaml
--
-   hostname: api-manager
-  box: wso2am
-   ip: 172.28.128.4
-   ram: 2048
-   cpu: 1
-   provisioner_script: api-manager/provisioner/product_provisioner.sh
-
-
-
-
-
-=======
   -
     hostname: api-manager
     box: wso2am
@@ -50,4 +36,3 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
->>>>>>> 3ac52ec4c91b18f5cf64f82a41964fea4b3427f4:apim-with-analytics/config.yaml
