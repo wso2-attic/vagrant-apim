@@ -1,4 +1,4 @@
-# WSO2 API Manager with Analytics Support and WSO2 Identity Server as the Key Manger
+# WSO2 API Manager
 
 Access the API Publisher and Store via the URLs given below.
 
