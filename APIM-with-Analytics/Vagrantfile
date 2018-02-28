@@ -19,15 +19,13 @@ require 'fileutils'
 require 'uri'
 require 'erb'
 
-<<<<<<< HEAD:Vagrantfile
-$stdout.puts "//todo:"
-=======
->>>>>>> 3ac52ec4c91b18f5cf64f82a41964fea4b3427f4:apim-with-analytics-and-identity-server-as-key-manager/Vagrantfile
-$stdout.print "login: "
-USERNAME = $stdin.gets.chomp
-$stdout.print "password: "
-PASSWORD = $stdin.noecho(&:gets).chomp
-TOKEN = [ERB::Util.url_encode(USERNAME), PASSWORD].join(':')
+if ENV['user'].nil? or ENV['password'].nil?
+  $stdout.print "login: "
+  ENV['user'] = $stdin.gets.chomp
+  $stdout.print "password: "
+  ENV['password'] = $stdin.noecho(&:gets).chomp
+  ENV['token'] = [ERB::Util.url_encode(ENV['user']), ENV['password']].join(':')
+end
 
 # load server configurations from YAML file
 CONFIGURATIONS = YAML.load_file('config.yaml')
@@ -43,7 +41,7 @@ Vagrant.configure(2) do |config|
       server_config.vm.host_name = server['hostname']
 
       #generate the url
-      url = "https://"+TOKEN+"@vagrant.wso2.com/boxes/"+server['box']+".box"
+      url = "https://"+ENV['token']+"@vagrant.wso2.com/boxes/"+server['box']+".box"
 
       server_config.vm.box_url = url
       # setup network configurations for the virtual machine
@@ -82,4 +80,3 @@ Vagrant.configure(2) do |config|
     end
   end
 end
-
