@@ -21,6 +21,3 @@ servers:
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
 
-
-
-
