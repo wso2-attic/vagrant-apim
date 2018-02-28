@@ -36,7 +36,6 @@ echo "Successfully installed software utilities."
 
 #setting up Java
 echo "Setting up Java."
-
 if test ! -d ${JAVA_HOME}; then
   mkdir ${JAVA_HOME};
   tar -xf ${WORKING_DIRECTORY}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
