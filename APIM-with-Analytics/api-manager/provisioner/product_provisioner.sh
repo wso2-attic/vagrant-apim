@@ -26,7 +26,7 @@ WUM_PATH=PATH=$PATH:/usr/local/wum/bin
 DEFAULT_MOUNT=/vagrant
 CONFIGURATIONS=${DEFAULT_MOUNT}/api-manager/confs
 
-# operate in anti-fronted mode with no user interaction
+# operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
 
 # install utility software
