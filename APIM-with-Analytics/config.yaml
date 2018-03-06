@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+# 9443, 8280, 8243
 
 servers:
   -
@@ -33,6 +34,10 @@ servers:
     hostname: api-manager
     box: wso2am
     ip: 172.28.128.4
+    ports:
+      - 9443
+      - 8280
+      - 8243
     ram: 2048
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh

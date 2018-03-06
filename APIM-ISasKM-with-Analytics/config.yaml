@@ -41,10 +41,10 @@ servers:
     hostname: api-manager
     box: wso2am
     ip: 172.28.128.4
+    ports:
+      - 9443
+      - 8280
+      - 8243
     ram: 2048
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
-
-
-
-
