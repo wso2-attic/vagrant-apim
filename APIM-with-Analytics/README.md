@@ -8,23 +8,23 @@ Access the API Publisher and Store via the URLs given below.
 * API Publisher
 
 ```
-    https://172.28.128.4:9443/publisher/
+    https://localhost:9443/publisher/
 ```
 
 * API Store
 
 ```
-    https://172.28.128.4:9443/store/
+    https://localhost:9443/store/
 ```
 
 * Carbon
 
 ```
-    https://172.28.128.4:9443/carbon/
+    https://localhost:9443/carbon/
 ```
 
 * Admin
 
 ```
-    https://172.28.128.4:9443/admin/
+    https://localhost:9443/admin/
 ```
