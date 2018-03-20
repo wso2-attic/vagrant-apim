@@ -20,6 +20,7 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: mysql/provisioner/db_provisioner.sh
+    conf_dir: mysql/scripts
 
   -
     hostname: api-manager-analytics
@@ -28,6 +29,7 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
+    conf_dir: api-manager-analytics/confs
 
   -
     hostname: is-as-km
@@ -36,6 +38,7 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: is-as-km/provisioner/product_provisioner.sh
+    conf_dir: is-as-km/confs
 
   -
     hostname: api-manager
@@ -48,3 +51,4 @@ servers:
     ram: 2048
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
+    conf_dir: api-manager/confs
