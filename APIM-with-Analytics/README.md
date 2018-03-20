@@ -2,7 +2,7 @@
 
 In order to run this Vagrant setup, you will need an active [Free Trial Subscription](https://wso2.com/free-trial-subscription) 
 from WSO2 since the referring Vagrant Boxes hosted at vagrant.wso2.com contains the latest updates and fixes for WSO2 API Manager and 
-API Manager Analytics 2.1.0 products. You can sign up for a Free Trial Subscription [here](https://wso2.com/free-trial-subscription).
+API Manager Analytics 2.1.0. You can sign up for a Free Trial Subscription [here](https://wso2.com/free-trial-subscription).
 
 ## Deployment Diagram
 ![Alt text](deployment-diagram.png?raw=true "Title")
