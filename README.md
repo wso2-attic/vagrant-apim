@@ -18,23 +18,31 @@ Virtualization should be enabled in BIOS settings before building the boxes.
 1. Checkout this repository into your local machine using the following Git command.
 
 ```
-    https://github.com/wso2/vagrant-apim.git
+https://github.com/wso2/vagrant-apim.git
 ```
+   > If you are to try out an already released zip of this repo, please ignore this 1st step. 
+
 
 2. Move to `vagrant-apim` folder.
 
 ```
-    cd vagrant-apim
+cd vagrant-apim
 ```
+>If you are to try out an already released zip of this repo, please ignore this 2nd step also. Instead, extract the zip file and directly browse to `vagrant-apim-<released-version>` folder. 
+     
+>If you are to try out an already released tag, after executing 2nd step, checkout the relevant tag, i.e. for example: <br> git checkout tags/v2.1.0.4 and continue below steps.
+
+
 
 3. Switch to WSO2 API Manager deployment pattern directory
 
 ```
-    cd < deployment-pattern-directory >
+cd < deployment-pattern-directory >
 ```
 
 4. Spawn up the Vagrant setup.
 
 ```
-    vagrant up
+vagrant up
 ```
+
