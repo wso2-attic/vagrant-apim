@@ -86,4 +86,4 @@ do
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
 
-echo "Management console URL: https://172.28.128.5:9444/carbon"
+echo "Management console URL: https://localhost:9444/carbon"
