@@ -14,7 +14,7 @@
 
 servers:
   -
-    hostname: mysql
+    hostname: wso2-mysql
     box: wso2-mysql
     ip: 172.28.128.3
     ram: 2048
@@ -23,16 +23,18 @@ servers:
     conf_dir: mysql/scripts
 
   -
-    hostname: api-manager-analytics
+    hostname: wso2am-analytics
     box: wso2am-analytics
     ip: 172.28.128.5
+    ports:
+      - 9444
     ram: 2048
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
     conf_dir: api-manager-analytics/confs
 
   -
-    hostname: api-manager
+    hostname: wso2am
     box: wso2am
     ip: 172.28.128.4
     ports:
