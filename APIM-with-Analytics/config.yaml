@@ -28,6 +28,7 @@ servers:
     ip: 172.28.128.5
     ports:
       - 9444
+      - 4041
     ram: 2048
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
