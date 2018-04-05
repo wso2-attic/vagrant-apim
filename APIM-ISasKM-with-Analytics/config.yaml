@@ -35,8 +35,8 @@ servers:
     conf_dir: api-manager-analytics/confs
 
   -
-    hostname: wso2am-is-as-km
-    box: wso2am-is-as-km
+    hostname: wso2is-as-km
+    box: wso2is-as-km
     ip: 172.28.128.6
     ram: 2048
     cpu: 1

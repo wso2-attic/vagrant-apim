@@ -68,8 +68,8 @@
                     <validationInterval>30000</validationInterval>
                 </configuration>
             </definition>
-        </datasource>
-        
+         </datasource>
+
         <datasource>
             <name>WSO2_MB_STORE_DB</name>
             <description>The datasource used for message broker database</description>
