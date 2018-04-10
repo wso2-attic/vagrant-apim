@@ -49,8 +49,7 @@ servers:
     box: wso2am-micro-gateway
     ip: 172.28.128.6
     ports:
-      - 5674
-      - 9445
+      - 8245
     ram: 2048
     cpu: 1
     provisioner_script: micro-gateway/provisioner/product_provisioner.sh

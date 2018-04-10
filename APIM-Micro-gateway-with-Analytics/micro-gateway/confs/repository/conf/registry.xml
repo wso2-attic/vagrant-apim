@@ -367,7 +367,7 @@
         <task class="org.wso2.carbon.apimgt.micro.gateway.usage.publisher.tasks.APIUsageFileCleanupTask" name="APIUsageFileCleanupTask">
             <trigger cron="0 0 1 1/1 * ? *"/>
             <property key="fileRetentionDays" value="35"/>
-          </task>
+        </task>
     </tasks>
-    
+
 </wso2registry>

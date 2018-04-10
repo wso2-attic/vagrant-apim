@@ -143,7 +143,7 @@
 
              Ex - Multiple Receiver Groups with two receivers each
              {tcp://localhost:7612/,tcp://localhost:7613},{tcp://localhost:7712/,tcp://localhost:7713/} -->
-        <DASServerURL>{tcp://localhost:7612}</DASServerURL>
+        <DASServerURL>{tcp://172.28.128.5:7612}</DASServerURL>
         <!--DASAuthServerURL>{ssl://localhost:7712}</DASAuthServerURL-->
         <!-- Administrator username to login to the remote DAS server. -->
         <DASUsername>${admin.username}</DASUsername>
@@ -154,7 +154,7 @@
         <StatsProviderImpl>org.wso2.carbon.apimgt.usage.client.impl.APIUsageStatisticsRdbmsClientImpl</StatsProviderImpl>
 
         <!-- DAS REST API configuration -->
-        <DASRestApiURL>https://localhost:9444</DASRestApiURL>
+        <DASRestApiURL>https://172.28.128.5:9444</DASRestApiURL>
         <DASRestApiUsername>${admin.username}</DASRestApiUsername>
         <DASRestApiPassword>${admin.password}</DASRestApiPassword>
 
@@ -163,8 +163,8 @@
         <SkipEventReceiverConnection>true</SkipEventReceiverConnection>
 
         <!-- API Usage Data Publisher. -->
-        <!-- <PublisherClass>org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher</PublisherClass> -->
         <PublisherClass>org.wso2.carbon.apimgt.micro.gateway.usage.publisher.APIMgtUsageFileDataPublisher</PublisherClass>
+
         <!-- If below property set to true,then the response message size will be calculated and publish
              with each successful API invocation event. -->
         <PublishResponseMessageSize>false</PublishResponseMessageSize>
@@ -209,7 +209,7 @@
     -->
     <APIKeyValidator>
         <!-- Server URL of the API key manager -->
-        <ServerURL>https://172.28.128.6:9443/services/</ServerURL>
+        <ServerURL>https://172.28.128.4:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
 
         <!-- Admin username for API key manager. -->
         <Username>admin</Username>
@@ -228,7 +228,7 @@
         <!--ThriftClientPort>10397</ThriftClientPort-->
 
         <EnableThriftServer>false</EnableThriftServer>
-        <ThriftServerHost>172.28.128.6</ThriftServerHost>
+        <ThriftServerHost>172.28.128.4</ThriftServerHost>
         <!--ThriftServerPort>10397</ThriftServerPort-->
 
         <!--ConnectionPool>
@@ -294,10 +294,10 @@
         <!--This property is used to indicate how we do user name comparision for token generation https://wso2.org/jira/browse/APIMANAGER-2225-->
         <CompareCaseInsensitively>true</CompareCaseInsensitively>
         <DisplayURL>false</DisplayURL>
-        <URL>https://localhost:${mgt.transport.https.port}/store</URL>
+        <URL>https://172.28.128.4:${mgt.transport.https.port}/store</URL>
 
         <!-- Server URL of the API Store. -->
-        <ServerURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
+        <ServerURL>https://172.28.128.4:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
         <!-- Admin username for API Store. -->
         <Username>${admin.username}</Username>
 
@@ -327,7 +327,7 @@
 
     <APIPublisher>
         <DisplayURL>false</DisplayURL>
-        <URL>https://localhost:${mgt.transport.https.port}/publisher</URL>
+        <URL>https://172.28.128.4:${mgt.transport.https.port}/publisher</URL>
         <!-- This parameter specifies enabling the capability of setting API documentation level granular visibility levels.
              By default any document associate with an API will have the same permissions set as the API.With enabling below
              property,it will show two additional permission levels as visible only to all registered users in a particular
