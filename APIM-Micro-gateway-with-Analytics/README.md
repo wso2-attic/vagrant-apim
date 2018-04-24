@@ -31,7 +31,7 @@ Access the API Publisher and Store via the URLs given below.
 ```
 ## Note
 
-After deploying an API, it is required to restart the API-Micro-gateway box
+If you make any changes to the APIs or throttling policies, it is required to restart the API-Micro-gateway machine.
 
 ```
     vagrant halt wso2am-micro-gateway
