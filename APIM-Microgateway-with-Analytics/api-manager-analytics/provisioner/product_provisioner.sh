@@ -13,17 +13,17 @@
 # limitations under the License
 
 # set variables
-WSO2_SERVER=wso2is-km
-WSO2_SERVER_VERSION=5.5.0
+WSO2_SERVER=wso2am-analytics
+WSO2_SERVER_VERSION=2.2.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
-WUM_ARCHIVE=wum-2.0-linux-x64.tar.gz
+WUM_ARCHIVE=wum-1.0-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
 WUM_HOME=/usr/local
 WUM_PATH=PATH=$PATH:/usr/local/wum/bin
-CONFIGURATIONS=${WORKING_DIRECTORY}/is-as-km/confs
+CONFIGURATIONS=${WORKING_DIRECTORY}/api-manager-analytics/confs
 
 # operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
@@ -86,4 +86,4 @@ do
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
 
-echo "Management console URL: https://172.28.128.6:9443/carbon"
+echo "Management console URL: https://localhost:9444/carbon"

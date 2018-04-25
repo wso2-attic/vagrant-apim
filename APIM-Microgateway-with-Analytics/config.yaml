@@ -21,7 +21,6 @@ servers:
     cpu: 1
     provisioner_script: mysql/provisioner/db_provisioner.sh
     conf_dir: mysql/scripts
-
   -
     hostname: wso2am-analytics
     box: wso2am-analytics
@@ -33,16 +32,6 @@ servers:
     cpu: 1
     provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
     conf_dir: api-manager-analytics/confs
-
-  -
-    hostname: wso2am-is-as-km
-    box: wso2am-is-as-km
-    ip: 172.28.128.6
-    ram: 2048
-    cpu: 1
-    provisioner_script: is-as-km/provisioner/product_provisioner.sh
-    conf_dir: is-as-km/confs
-
   -
     hostname: wso2am
     box: wso2am
@@ -55,3 +44,13 @@ servers:
     cpu: 1
     provisioner_script: api-manager/provisioner/product_provisioner.sh
     conf_dir: api-manager/confs
+  -
+    hostname: wso2am-micro-gateway
+    box: wso2am-micro-gateway
+    ip: 172.28.128.6
+    ports:
+      - 8244
+    ram: 2048
+    cpu: 1
+    provisioner_script: micro-gateway/provisioner/product_provisioner.sh
+    conf_dir: micro-gateway/confs

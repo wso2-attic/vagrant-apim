@@ -13,17 +13,14 @@
 # limitations under the License
 
 # set variables
-WSO2_SERVER=wso2is-km
-WSO2_SERVER_VERSION=5.5.0
+WSO2_SERVER=wso2am-micro-gw
+WSO2_SERVER_VERSION=2.2.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
-WUM_ARCHIVE=wum-2.0-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
-WUM_HOME=/usr/local
-WUM_PATH=PATH=$PATH:/usr/local/wum/bin
-CONFIGURATIONS=${WORKING_DIRECTORY}/is-as-km/confs
+CONFIGURATIONS=${WORKING_DIRECTORY}/micro-gateway/confs
 
 # operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
@@ -39,14 +36,6 @@ if test ! -d ${JAVA_HOME}; then
   mkdir ${JAVA_HOME};
   tar -xf ${WORKING_DIRECTORY}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1
   echo "Successfully set up Java"
-fi
-
-# set up wum
-echo "Setting up WUM."
-if test ! -d ${WUM_HOME}; then
-  mkdir ${WUM_HOME};
-  tar -xf ${WORKING_DIRECTORY}/${WUM_ARCHIVE} -C ${WUM_HOME} --strip-components=1
-  echo "Successfully set up WUM."
 fi
 
 #setting up the server
@@ -66,8 +55,6 @@ cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-$
 echo "Successfully copied the files."
 
 export JAVA_HOME
-export WUM_PATH
-
 echo "Removing configurations directories."
 rm -rf ${CONFIGURATIONS}
 
@@ -85,5 +72,3 @@ do
   # once the log line with WSO2 Carbon server start confirmation was logged, kill the started tail process
   [[ "${LOG_LINE}" == *"WSO2 Carbon started"* ]] && pkill tail
 done
-
-echo "Management console URL: https://172.28.128.6:9443/carbon"
