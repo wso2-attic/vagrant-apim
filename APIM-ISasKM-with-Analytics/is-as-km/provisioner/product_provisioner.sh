@@ -23,7 +23,7 @@ WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
 WUM_HOME=/usr/local
 WUM_PATH=PATH=$PATH:/usr/local/wum/bin
-CONFIGURATIONS=${WORKING_DIRECTORY}/is-as-km/confs
+CONFIGURATIONS=${WORKING_DIRECTORY}/api-manager-analytics/confs
 
 # operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
