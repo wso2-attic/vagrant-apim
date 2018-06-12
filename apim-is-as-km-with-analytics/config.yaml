@@ -31,8 +31,8 @@ servers:
       - 4041
     ram: 2048
     cpu: 1
-    provisioner_script: api-manager-analytics/provisioner/product_provisioner.sh
-    conf_dir: api-manager-analytics/confs
+    provisioner_script: apim-analytics/provisioner/product_provisioner.sh
+    conf_dir: apim-analytics/confs
 
   -
     hostname: wso2am-is-as-km
@@ -53,5 +53,5 @@ servers:
       - 8243
     ram: 2048
     cpu: 1
-    provisioner_script: api-manager/provisioner/product_provisioner.sh
-    conf_dir: api-manager/confs
+    provisioner_script: apim/provisioner/product_provisioner.sh
+    conf_dir: apim/confs
