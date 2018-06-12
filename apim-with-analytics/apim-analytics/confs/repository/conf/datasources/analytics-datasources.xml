@@ -15,15 +15,17 @@
                 <configuration>
                     <url>jdbc:mysql://172.28.128.3:3306/stats_db?autoReconnect=true&amp;relaxAutoCommit=true</url>
                     <username>root</username>
-                    <password>wso2carbon</password>
+                    <password>root</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
+                    <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
+                    <validationInterval>30000</validationInterval>
                     <defaultAutoCommit>false</defaultAutoCommit>
-                    <initialSize>0</initialSize>
-                    <testWhileIdle>true</testWhileIdle>
-                    <minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>
+                    <!--<initialSize>0</initialSize>-->
+                    <!--<testWhileIdle>true</testWhileIdle>-->
+                    <!--<minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>-->
                     <defaultTransactionIsolation>READ_COMMITTED</defaultTransactionIsolation>
                 </configuration>
             </definition>
@@ -36,15 +38,17 @@
                 <configuration>
                     <url>jdbc:mysql://172.28.128.3:3306/stats_db?autoReconnect=true&amp;relaxAutoCommit=true</url>
                     <username>root</username>
-                    <password>wso2carbon</password>
+                    <password>root</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
+                    <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
+                    <validationInterval>30000</validationInterval>
                     <defaultAutoCommit>false</defaultAutoCommit>
-                    <initialSize>0</initialSize>
-                    <testWhileIdle>true</testWhileIdle>
-                    <minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>
+                    <!--<initialSize>0</initialSize>-->
+                    <!--<testWhileIdle>true</testWhileIdle>-->
+                    <!--<minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>-->
                     <defaultTransactionIsolation>READ_COMMITTED</defaultTransactionIsolation>
                 </configuration>
             </definition>

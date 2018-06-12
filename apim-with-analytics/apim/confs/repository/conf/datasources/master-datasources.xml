@@ -16,7 +16,7 @@
                 <configuration>
                     <url>jdbc:mysql://172.28.128.3:3306/carbon_db?autoReconnect=true</url>
                     <username>root</username>
-                    <password>wso2carbon</password>
+                    <password>root</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
@@ -35,9 +35,9 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://172.28.128.3:3306/apimgt_db?autoReconnect=true</url>
+                    <url>jdbc:mysql://172.28.128.3:3306/apimgt_db?autoReconnect=true&amp;useSSL=false</url>
                     <username>root</username>
-                    <password>wso2carbon</password>
+                    <password>root</password>
                     <defaultAutoCommit>false</defaultAutoCommit>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
@@ -49,7 +49,7 @@
             </definition>
         </datasource>
 
-         <datasource>
+        <datasource>
             <name>WSO2AM_STATS_DB</name>
             <description>The datasource used for getting statistics to API Manager</description>
             <jndiConfig>
@@ -57,19 +57,19 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://172.28.128.3:3306/stats_db?autoReconnect=true&amp;relaxAutoCommit=true</url>
+                    <url>jdbc:mysql://172.28.128.3:3306/stats_db?autoReconnect=true&amp;relaxAutoCommit=true&amp;useSSL=false</url>
                     <username>root</username>
-                    <password>wso2carbon</password>
-                    <defaultAutoCommit>false</defaultAutoCommit>
+                    <password>root</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
                     <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
                     <validationInterval>30000</validationInterval>
+                    <defaultAutoCommit>false</defaultAutoCommit>
                 </configuration>
             </definition>
-         </datasource>
+        </datasource>
 
         <datasource>
             <name>WSO2_MB_STORE_DB</name>
