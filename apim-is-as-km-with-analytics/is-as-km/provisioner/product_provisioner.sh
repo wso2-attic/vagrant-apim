@@ -46,12 +46,12 @@ fi
 
 #moving MySQL driver
 echo "Copying the MySQL driver to the server pack..."
-cp ${WORKING_DIRECTORY}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}-rc1/repository/components/lib/${MYSQL_CONNECTOR}
+cp ${WORKING_DIRECTORY}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/lib/${MYSQL_CONNECTOR}
 echo "Successfully copied the MySQL driver to the server pack."
 
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
-cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}-rc1/repository/conf/
+cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
 echo "Successfully copied the files."
 
 export JAVA_HOME
@@ -61,12 +61,12 @@ rm -rf ${CONFIGURATIONS}
 
 # start the WSO2 product pack as a background service
 echo "Starting ${WSO2_SERVER}-${WSO2_SERVER_VERSION}..."
-sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}-rc1/bin/wso2server.sh start
+sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/bin/wso2server.sh start
 
 sleep 10
 
 # tail the WSO2 product server startup logs until the server startup confirmation is logged
-tail -f ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}-rc1/repository/logs/wso2carbon.log | while read LOG_LINE
+tail -f ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/logs/wso2carbon.log | while read LOG_LINE
 do
   # echo each log line
   echo "${LOG_LINE}"
