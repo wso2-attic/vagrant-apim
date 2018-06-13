@@ -14,16 +14,13 @@
 
 # set variables
 WSO2_SERVER=wso2am-analytics
-WSO2_SERVER_VERSION=2.2.0
-WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
+WSO2_SERVER_VERSION=2.5.0
+WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}.zip
 MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
-WUM_ARCHIVE=wum-1.0-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
-WUM_HOME=/usr/local
-WUM_PATH=PATH=$PATH:/usr/local/wum/bin
-CONFIGURATIONS=${WORKING_DIRECTORY}/api-manager-analytics/confs
+CONFIGURATIONS=${WORKING_DIRECTORY}/apim-analytics/confs
 
 # operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
@@ -41,14 +38,6 @@ if test ! -d ${JAVA_HOME}; then
   echo "Successfully set up Java"
 fi
 
-# set up wum
-echo "Setting up WUM."
-if test ! -d ${WUM_HOME}; then
-  mkdir ${WUM_HOME};
-  tar -xf ${WORKING_DIRECTORY}/${WUM_ARCHIVE} -C ${WUM_HOME} --strip-components=1
-  echo "Successfully set up WUM."
-fi
-
 #setting up the server
 if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
   unzip -q ${WORKING_DIRECTORY}/${WSO2_SERVER_PACK} -d ${WORKING_DIRECTORY}
@@ -57,28 +46,27 @@ fi
 
 #moving MySQL driver
 echo "Copying the MySQL driver to the server pack..."
-cp ${WORKING_DIRECTORY}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/lib/${MYSQL_CONNECTOR}
+cp ${WORKING_DIRECTORY}/${MYSQL_CONNECTOR} ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}.Beta/repository/components/lib/${MYSQL_CONNECTOR}
 echo "Successfully copied the MySQL driver to the server pack."
 
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
-cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
+cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}.Beta/repository/conf/
 echo "Successfully copied the files."
 
 export JAVA_HOME
-export WUM_PATH
 
 echo "Removing configurations directories."
 rm -rf ${CONFIGURATIONS}
 
 # start the WSO2 product pack as a background service
 echo "Starting ${WSO2_SERVER}-${WSO2_SERVER_VERSION}..."
-sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/bin/wso2server.sh start
+sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}.Beta/bin/wso2server.sh start
 
 sleep 10
 
 # tail the WSO2 product server startup logs until the server startup confirmation is logged
-tail -f ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/logs/wso2carbon.log | while read LOG_LINE
+tail -f ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}.Beta/repository/logs/wso2carbon.log | while read LOG_LINE
 do
   # echo each log line
   echo "${LOG_LINE}"
