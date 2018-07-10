@@ -20,7 +20,7 @@ MYSQL_CONNECTOR=mysql-connector-java-*-bin.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
-CONFIGURATIONS=${WORKING_DIRECTORY}/api-manager/confs
+CONFIGURATIONS=${WORKING_DIRECTORY}/apim/confs
 
 # operating in non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
