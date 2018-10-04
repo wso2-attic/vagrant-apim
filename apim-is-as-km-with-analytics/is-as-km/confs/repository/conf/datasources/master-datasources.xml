@@ -7,10 +7,10 @@
     <datasources>
 
         <datasource>
-            <name>LOCAL_REGISTRY_DB</name>
+            <name>WSO2_CARBON_DB</name>
             <description>The datasource used for registry and user manager</description>
             <jndiConfig>
-                <name>jdbc/LocalRegistryDB</name>
+                <name>jdbc/WSO2CarbonDB</name>
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
@@ -28,10 +28,10 @@
         </datasource>
 
         <datasource>
-            <name>CARBON_DB</name>
+            <name>WSO2_COMMON_DS</name>
             <description>The datasource used for registry and user manager</description>
             <jndiConfig>
-                <name>jdbc/CarbonDB</name>
+                <name>jdbc/WSO2CommonDB</name>
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
@@ -44,6 +44,7 @@
                     <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
                     <validationInterval>30000</validationInterval>
+                    <defaultAutoCommit>true</defaultAutoCommit>
                 </configuration>
             </definition>
         </datasource>
@@ -59,7 +60,6 @@
                     <url>jdbc:mysql://172.28.128.3:3306/apimgt_db?autoReconnect=true&amp;useSSL=false</url>
                     <username>root</username>
                     <password>wso2carbon</password>
-                    <defaultAutoCommit>false</defaultAutoCommit>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                     <maxActive>50</maxActive>
                     <maxWait>60000</maxWait>
@@ -68,7 +68,28 @@
                     <validationInterval>30000</validationInterval>
                 </configuration>
             </definition>
-         </datasource>
+        </datasource>
+
+        <!--<datasource>-->
+            <!--<name>WSO2AM_STATS_DB</name>-->
+            <!--<description>The datasource used for getting statistics to API Manager</description>-->
+            <!--<jndiConfig>-->
+                <!--<name>jdbc/WSO2AM_STATS_DB</name>-->
+            <!--</jndiConfig>-->
+            <!--<definition type="RDBMS">-->
+                <!--<configuration>-->
+                    <!--<url>jdbc:h2:&lt;!&ndash; Full path to JDBC database &ndash;&gt;;AUTO_SERVER=TRUE</url>-->
+                    <!--<username>wso2carbon</username>-->
+                    <!--<password>wso2carbon</password>-->
+                    <!--<driverClassName>org.h2.Driver</driverClassName>-->
+                    <!--<maxActive>50</maxActive>-->
+                    <!--<maxWait>60000</maxWait>-->
+                    <!--<testOnBorrow>true</testOnBorrow>-->
+                    <!--<validationQuery>SELECT 1</validationQuery>-->
+                    <!--<validationInterval>30000</validationInterval>-->
+                <!--</configuration>-->
+            <!--</definition>-->
+        <!--</datasource>-->
 
         <datasource>
             <name>WSO2_MB_STORE_DB</name>
@@ -103,7 +124,6 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-
                     <defaultAutoCommit></defaultAutoCommit>
                     <defaultReadOnly></defaultReadOnly>
                     <defaultTransactionIsolation>NONE|READ_COMMITTED|READ_UNCOMMITTED|REPEATABLE_READ|SERIALIZABLE</defaultTransactionIsolation>
@@ -114,14 +134,12 @@
                     <maxIdle></maxIdle>
                     <initialSize></initialSize>
                     <maxWait></maxWait>
-
                     <dataSourceClassName>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</dataSourceClassName>
                     <dataSourceProps>
                         <property name="url">jdbc:mysql://localhost:3306/Test1</property>
                         <property name="user">root</property>
                         <property name="password">123</property>
                     </dataSourceProps>
-
                 </configuration>
             </definition>
         </datasource-->
