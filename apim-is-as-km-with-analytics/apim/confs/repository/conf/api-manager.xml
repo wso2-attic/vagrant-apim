@@ -149,8 +149,8 @@
              tcp://localhost:7612/,tcp://localhost:7613/,tcp://localhost:7614/
              Ex - Multiple Receiver Groups with two receivers each
              {tcp://localhost:7612/,tcp://localhost:7613},{tcp://localhost:7712/,tcp://localhost:7713/} -->
-        <StreamProcessorServerURL>tcp://am-analytics:7612</StreamProcessorServerURL>
-        <StreamProcessorAuthServerURL>ssl://am-analytics:7712</StreamProcessorAuthServerURL>
+        <StreamProcessorServerURL>tcp://172.28.128.5:7612</StreamProcessorServerURL>
+        <StreamProcessorAuthServerURL>ssl://172.28.128.5:7712</StreamProcessorAuthServerURL>
         <!-- Administrator username to login to the remote StreamProcessor server. -->
         <StreamProcessorUsername>admin</StreamProcessorUsername>
         <!-- Administrator password to login to the remote StreamProcessor server. -->
@@ -160,7 +160,7 @@
         <StatsProviderImpl>org.wso2.carbon.apimgt.usage.client.impl.APIUsageStatisticsRestClientImpl</StatsProviderImpl>
 
         <!-- StreamProcessor REST API configuration -->
-        <StreamProcessorRestApiURL>https://am-analytics:7444</StreamProcessorRestApiURL>
+        <StreamProcessorRestApiURL>https://172.28.128.5:7444</StreamProcessorRestApiURL>
         <StreamProcessorRestApiUsername>admin</StreamProcessorRestApiUsername>
         <StreamProcessorRestApiPassword>admin</StreamProcessorRestApiPassword>
 
@@ -646,16 +646,3 @@
     </SwaggerCodegen>
 
 </APIManager>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.

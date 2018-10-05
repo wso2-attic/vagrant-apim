@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
  Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
-
  http://www.apache.org/licenses/LICENSE-2.0
-
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +14,6 @@
 
 <!--
     This is the main server configuration file
-
     ${carbon.home} represents the carbon.home system property.
     Other system properties can be specified in a similar manner.
 -->
@@ -94,7 +90,6 @@
         to the proxy host and proxy port this parameter allows you add a path component to external URLs. e.g.
      		URL of the Carbon server -> https://10.100.1.1:9443/carbon
    		URL of the reverse proxy -> https://prod.abc.com/appserver/carbon
-
    	appserver - proxy context path. This specially required whenever you are generating URLs to displace in
    	Carbon UI components.
     -->
@@ -235,14 +230,11 @@
         load tenant when a request is received only. Similarly Eager loading is used to enable load
         existing tenants after carbon server starts up. Using this feature, you will be able to include
         or exclude tenants which are to be loaded when server startup.
-
         We can enable only one LoadingPolicy at a given time.
-
         1. Tenant Lazy Loading
            This is the default behaviour and enabled by default. With this policy, tenants are not loaded at
            server startup, but loaded based on-demand (i.e when a request is received for a tenant).
            The default tenant idle time is 30 minutes.
-
         2. Tenant Eager Loading
            This is by default not enabled. It can be be enabled by un-commenting the <EagerLoading> section.
            The eager loading configurations supported are as below. These configurations can be given as the
@@ -278,9 +270,7 @@
     <Axis2Config>
         <!--
              Location of the Axis2 Services & Modules repository
-
              This can be a directory in the local file system, or a URL.
-
              e.g.
              1. /home/wso2wsas/repository/ - An absolute path
              2. repository - In this case, the path is relative to CARBON_HOME
@@ -297,9 +287,7 @@
 
         <!--
             Location of the main Axis2 configuration descriptor file, a.k.a. axis2.xml file
-
             This can be a file on the local file system, or a URL
-
             e.g.
             1. /home/repository/axis2.xml - An absolute path
             2. conf/axis2.xml - In this case, the path is relative to CARBON_HOME
@@ -366,7 +354,6 @@
 
         <!--
             The list of key resolvers which will be used based on the context when handling crypto with external parties.
-
             e.g. Resolving the public key of an external entity.
         -->
         <KeyResolvers>
@@ -465,7 +452,6 @@
          The Tomcat realm to be used for hosted Web applications. Allowed values are;
          1. UserManager
          2. Memory
-
          If this is set to 'UserManager', the realm will pick users & roles from the system's
          WSO2 User Manager. If it is set to 'memory', the realm will pick users & roles from
          CARBON_HOME/repository/conf/tomcat/tomcat-users.xml
@@ -583,10 +569,8 @@
 
     <!--
        Processors which process special HTTP GET requests such as ?wsdl, ?policy etc.
-
        In order to plug in a processor to handle a special request, simply add an entry to this
        section.
-
        The value of the Item element is the first parameter in the query string(e.g. ?wsdl)
        which needs special processing
 
@@ -709,10 +693,8 @@
 	Publisher URLs to use external API Manager instance-->
 
 	<!--ExternalAPIManager>
-
 		<APIGatewayURL>http://localhost:8281</APIGatewayURL>
 		<APIPublisherURL>http://localhost:8281/publisher</APIPublisherURL>
-
 	</ExternalAPIManager-->
 
 	<LoadAPIContextsInServerStartup>true</LoadAPIContextsInServerStartup>
