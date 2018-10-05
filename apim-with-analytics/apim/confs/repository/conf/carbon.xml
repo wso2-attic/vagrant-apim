@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
  Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
-
  http://www.apache.org/licenses/LICENSE-2.0
-
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +14,6 @@
 
 <!--
     This is the main server configuration file
-
     ${carbon.home} represents the carbon.home system property.
     Other system properties can be specified in a similar manner.
 -->
@@ -60,10 +56,10 @@
     <!--
     <ServerURL>https://${carbon.local.ip}:${carbon.management.port}${carbon.context}/services/</ServerURL>
     -->
-    <!--
-    The URL of the index page. This is where the user will be redirected after signing in to the
-    carbon server.
-    -->
+     <!--
+     The URL of the index page. This is where the user will be redirected after signing in to the
+     carbon server.
+     -->
     <!-- IndexPageURL>/carbon/admin/index.jsp</IndexPageURL-->
 
     <!--
@@ -94,7 +90,6 @@
         to the proxy host and proxy port this parameter allows you add a path component to external URLs. e.g.
      		URL of the Carbon server -> https://10.100.1.1:9443/carbon
    		URL of the reverse proxy -> https://prod.abc.com/appserver/carbon
-
    	appserver - proxy context path. This specially required whenever you are generating URLs to displace in
    	Carbon UI components.
     -->
@@ -142,20 +137,20 @@
             <KDCServerPort>8000</KDCServerPort>
         </EmbeddedLDAP>
 
-        <!--
-                 Override datasources JNDIproviderPort defined in bps.xml and datasources.properties files
-        -->
-        <!--<JNDIProviderPort>2199</JNDIProviderPort>-->
-        <!--Override receive port of thrift based entitlement service.-->
-        <ThriftEntitlementReceivePort>10500</ThriftEntitlementReceivePort>
+	<!--
+             Override datasources JNDIproviderPort defined in bps.xml and datasources.properties files
+	-->
+	<!--<JNDIProviderPort>2199</JNDIProviderPort>-->
+	<!--Override receive port of thrift based entitlement service.-->
+	<ThriftEntitlementReceivePort>10500</ThriftEntitlementReceivePort>
 
-        <!--
-         This is the proxy port of the worker cluster. These need to be configured in a scenario where
-         manager node is not exposed through the load balancer through which the workers are exposed
-         therefore doesn't have a proxy port.
-        <WorkerHttpProxyPort>80</WorkerHttpProxyPort>
-        <WorkerHttpsProxyPort>443</WorkerHttpsProxyPort>
-        -->
+    <!--
+     This is the proxy port of the worker cluster. These need to be configured in a scenario where
+     manager node is not exposed through the load balancer through which the workers are exposed
+     therefore doesn't have a proxy port.
+    <WorkerHttpProxyPort>80</WorkerHttpProxyPort>
+    <WorkerHttpsProxyPort>443</WorkerHttpsProxyPort>
+    -->
 
     </Ports>
 
@@ -235,14 +230,11 @@
         load tenant when a request is received only. Similarly Eager loading is used to enable load
         existing tenants after carbon server starts up. Using this feature, you will be able to include
         or exclude tenants which are to be loaded when server startup.
-
         We can enable only one LoadingPolicy at a given time.
-
         1. Tenant Lazy Loading
            This is the default behaviour and enabled by default. With this policy, tenants are not loaded at
            server startup, but loaded based on-demand (i.e when a request is received for a tenant).
            The default tenant idle time is 30 minutes.
-
         2. Tenant Eager Loading
            This is by default not enabled. It can be be enabled by un-commenting the <EagerLoading> section.
            The eager loading configurations supported are as below. These configurations can be given as the
@@ -278,9 +270,7 @@
     <Axis2Config>
         <!--
              Location of the Axis2 Services & Modules repository
-
              This can be a directory in the local file system, or a URL.
-
              e.g.
              1. /home/wso2wsas/repository/ - An absolute path
              2. repository - In this case, the path is relative to CARBON_HOME
@@ -297,9 +287,7 @@
 
         <!--
             Location of the main Axis2 configuration descriptor file, a.k.a. axis2.xml file
-
             This can be a file on the local file system, or a URL
-
             e.g.
             1. /home/repository/axis2.xml - An absolute path
             2. conf/axis2.xml - In this case, the path is relative to CARBON_HOME
@@ -326,9 +314,9 @@
         <!-- If this parameter is set, the ?wsdl on an admin service will not give the admin service wsdl. -->
         <HideAdminServiceWSDLs>true</HideAdminServiceWSDLs>
 
-        <!--WARNING-Use With Care! Uncommenting bellow parameter would expose all AdminServices in HTTP transport.
-        With HTTP transport your credentials and data routed in public channels are vulnerable for sniffing attacks.
-        Use bellow parameter ONLY if your communication channels are confirmed to be secured by other means -->
+	<!--WARNING-Use With Care! Uncommenting bellow parameter would expose all AdminServices in HTTP transport.
+	With HTTP transport your credentials and data routed in public channels are vulnerable for sniffing attacks.
+	Use bellow parameter ONLY if your communication channels are confirmed to be secured by other means -->
         <!--HttpAdminServices>*</HttpAdminServices-->
 
     </Axis2Config>
@@ -347,6 +335,32 @@
             <Description>Default User Role</Description>
         </Role>
     </ServiceUserRoles>
+
+    <!--
+       Configurations related to Carbon Crypto Service which is a crypto framework used inside Carbon products.
+    -->
+    <CryptoService>
+
+        <Enabled>true</Enabled>
+
+        <!-- The crypto provider which is used for internal data encryption and decryption -->
+        <InternalCryptoProviderClassName>org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider</InternalCryptoProviderClassName>
+
+        <!--
+            The crypto provider which is used for the crypto needs which come when communicating with external parties.
+            e.g. Signing, Decrypting.
+        -->
+        <ExternalCryptoProviderClassName>org.wso2.carbon.core.encryption.KeyStoreBasedExternalCryptoProvider</ExternalCryptoProviderClassName>
+
+        <!--
+            The list of key resolvers which will be used based on the context when handling crypto with external parties.
+            e.g. Resolving the public key of an external entity.
+        -->
+        <KeyResolvers>
+            <KeyResolver className="org.wso2.carbon.crypto.defaultProvider.resolver.ContextIndependentKeyResolver" priority="-1"/>
+        </KeyResolvers>
+
+    </CryptoService>
 
     <!--
       Enable following config to allow Emails as usernames.
@@ -375,6 +389,23 @@
         </KeyStore>
 
         <!--
+            The KeyStore which is used for encrypting/decrypting internal data.
+            This block is read by Carbon Crypto Service.
+        -->
+        <InternalKeyStore>
+            <!-- Keystore file location-->
+            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
+            <!-- Keystore type (JKS/PKCS12 etc.)-->
+            <Type>JKS</Type>
+            <!-- Keystore password-->
+            <Password>wso2carbon</Password>
+            <!-- Private Key alias-->
+            <KeyAlias>wso2carbon</KeyAlias>
+            <!-- Private Key password-->
+            <KeyPassword>wso2carbon</KeyPassword>
+        </InternalKeyStore>
+
+        <!--
             System wide trust-store which is used to maintain the certificates of all
             the trusted parties.
         -->
@@ -399,21 +430,21 @@
                 exceptions at runtime.
             -->
             <!-- <Credential> -->
-            <!--
-                the pattern that would match a subset of URLs for which this authenticator
-                would be used
-            -->
-            <!-- <Pattern>regularExpression</Pattern> -->
-            <!--
-                the type of this authenticator. Allowed values are:
-                1. server
-                2. proxy
-            -->
-            <!-- <Type>proxy</Type> -->
-            <!-- the username used to log in to server/proxy -->
-            <!-- <Username>username</Username> -->
-            <!-- the password used to log in to server/proxy -->
-            <!-- <Password>password</Password> -->
+                <!--
+                    the pattern that would match a subset of URLs for which this authenticator
+                    would be used
+                -->
+                <!-- <Pattern>regularExpression</Pattern> -->
+                <!--
+                    the type of this authenticator. Allowed values are:
+                    1. server
+                    2. proxy
+                -->
+                <!-- <Type>proxy</Type> -->
+                <!-- the username used to log in to server/proxy -->
+                <!-- <Username>username</Username> -->
+                <!-- the password used to log in to server/proxy -->
+                <!-- <Password>password</Password> -->
             <!-- </Credential> -->
         </NetworkAuthenticatorConfig>
 
@@ -421,21 +452,20 @@
          The Tomcat realm to be used for hosted Web applications. Allowed values are;
          1. UserManager
          2. Memory
-
          If this is set to 'UserManager', the realm will pick users & roles from the system's
          WSO2 User Manager. If it is set to 'memory', the realm will pick users & roles from
          CARBON_HOME/repository/conf/tomcat/tomcat-users.xml
         -->
         <TomcatRealm>UserManager</TomcatRealm>
 
-        <!--Option to disable storing of tokens issued by STS-->
-        <DisableTokenStore>false</DisableTokenStore>
+	<!--Option to disable storing of tokens issued by STS-->
+	<DisableTokenStore>false</DisableTokenStore>
 
-        <!--
-         Security token store class name. If this is not set, default class will be
-         org.wso2.carbon.security.util.SecurityTokenStore
-        -->
-        <!--TokenStoreClassName>org.wso2.carbon.identity.sts.store.DBTokenStore</TokenStoreClassName-->
+	<!--
+	 Security token store class name. If this is not set, default class will be
+	 org.wso2.carbon.security.util.SecurityTokenStore
+	-->
+	<!--TokenStoreClassName>org.wso2.carbon.identity.sts.store.DBTokenStore</TokenStoreClassName-->
 
         <XSSPreventionConfig>
             <Enabled>true</Enabled>
@@ -446,12 +476,12 @@
         </XSSPreventionConfig>
     </Security>
 
-    <!--Hide unnecessary menu Items-->
-    <HideMenuItemIds>
-        <HideMenuItemId>claim_mgt_menu</HideMenuItemId>
-        <HideMenuItemId>identity_mgt_emailtemplate_menu</HideMenuItemId>
-        <HideMenuItemId>identity_security_questions_menu</HideMenuItemId>
-    </HideMenuItemIds>
+ <!--Hide unnecessary menu Items-->
+ <HideMenuItemIds>
+ <HideMenuItemId>claim_mgt_menu</HideMenuItemId>
+ <HideMenuItemId>identity_mgt_emailtemplate_menu</HideMenuItemId>
+ <HideMenuItemId>identity_security_questions_menu</HideMenuItemId>
+ </HideMenuItemIds>
 
     <!--
        The temporary work directory
@@ -539,10 +569,8 @@
 
     <!--
        Processors which process special HTTP GET requests such as ?wsdl, ?policy etc.
-
        In order to plug in a processor to handle a special request, simply add an entry to this
        section.
-
        The value of the Item element is the first parameter in the query string(e.g. ?wsdl)
        which needs special processing
 
@@ -647,30 +675,28 @@
        Default Feature Repository of WSO2 Carbon.
     -->
     <FeatureRepository>
-        <RepositoryName>default repository</RepositoryName>
-        <RepositoryURL>http://product-dist.wso2.com/p2/carbon/releases/wilkes/</RepositoryURL>
+	    <RepositoryName>default repository</RepositoryName>
+	    <RepositoryURL>http://product-dist.wso2.com/p2/carbon/releases/wilkes/</RepositoryURL>
     </FeatureRepository>
 
     <!--
 	Configure API Management
    -->
-    <APIManagement>
+   <APIManagement>
 
-        <!--Uses the embedded API Manager by default. If you want to use an external
-        API Manager instance to manage APIs, configure below  externalAPIManager-->
+	<!--Uses the embedded API Manager by default. If you want to use an external
+	API Manager instance to manage APIs, configure below  externalAPIManager-->
 
-        <Enabled>true</Enabled>
+	<Enabled>true</Enabled>
 
-        <!--Uncomment and configure API Gateway and
-        Publisher URLs to use external API Manager instance-->
+	<!--Uncomment and configure API Gateway and
+	Publisher URLs to use external API Manager instance-->
 
-        <!--ExternalAPIManager>
+	<!--ExternalAPIManager>
+		<APIGatewayURL>http://localhost:8281</APIGatewayURL>
+		<APIPublisherURL>http://localhost:8281/publisher</APIPublisherURL>
+	</ExternalAPIManager-->
 
-            <APIGatewayURL>http://localhost:8281</APIGatewayURL>
-            <APIPublisherURL>http://localhost:8281/publisher</APIPublisherURL>
-
-        </ExternalAPIManager-->
-
-        <LoadAPIContextsInServerStartup>true</LoadAPIContextsInServerStartup>
-    </APIManagement>
+	<LoadAPIContextsInServerStartup>true</LoadAPIContextsInServerStartup>
+   </APIManagement>
 </Server>

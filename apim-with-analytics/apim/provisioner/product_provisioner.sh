@@ -16,7 +16,7 @@
 WSO2_SERVER=wso2am
 WSO2_SERVER_VERSION=2.6.0
 WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
-MYSQL_CONNECTOR=mysql-connector-java-*-bin.jar
+MYSQL_CONNECTOR=mysql-connector-java-5.1.*-bin.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
 JAVA_HOME=/opt/java/
@@ -52,6 +52,7 @@ echo "Successfully copied the MySQL driver to the server pack."
 # copy files with configuration changes
 echo "Copying the files with configuration changes to the server pack..."
 cp -TRv ${CONFIGURATIONS}/repository/conf/ ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/conf/
+cp -TRv ${CONFIGURATIONS}/bin/wso2server.sh ${WORKING_DIRECTORY}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/bin/wso2server.sh
 echo "Successfully copied the files."
 
 export JAVA_HOME
