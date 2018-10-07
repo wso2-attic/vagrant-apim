@@ -26,9 +26,6 @@ servers:
     hostname: wso2am-analytics-worker
     box: wso2am-analytics
     ip: 172.28.128.5
-    ports:
-      - 9444
-      - 4041
     ram: 2048
     cpu: 1
     provisioner_script: apim-analytics-worker/provisioner/product_provisioner.sh
