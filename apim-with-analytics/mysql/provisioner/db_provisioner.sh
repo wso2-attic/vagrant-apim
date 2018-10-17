@@ -20,10 +20,14 @@ DB_USER=root
 DB_PASSWORD=wso2carbon
 WORKING_DIRECTORY=/home/vagrant
 
+echo "Change the bind-address 127.0.0.1 to 0.0.0.0 ..."
+sudo sed -i "s/127.0.0.1/0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo systemctl restart mysql.service
+
 # run product db script
 echo "Execute the database scripts..."
-mysql -u${DB_USER} -p${DB_PASSWORD} -e "source ${WORKING_DIRECTORY}/mysql/scripts/mysql.sql"
-mysql -u${DB_USER} -p${DB_PASSWORD} -e "source ${WORKING_DIRECTORY}/mysql/scripts/um_mysql.sql"
+mysql -u${DB_USER} -p${DB_PASSWORD} -e "source ${WORKING_DIRECTORY}/mysql/scripts/mysql5.7.sql"
+mysql -u${DB_USER} -p${DB_PASSWORD} -e "source ${WORKING_DIRECTORY}/mysql/scripts/um_mysql5.7.sql"
 echo "Successfully executed the database scripts."
 
 # grants root access to MySQL server from any host
