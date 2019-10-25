@@ -32,6 +32,15 @@ servers:
     conf_dir: apim-analytics-worker/confs
 
   -
+    hostname: wso2am-analytics-dashboard
+    box: wso2am-analytics-dashboard
+    ip: 172.28.128.6
+    ram: 2048
+    cpu: 1
+    provisioner_script: apim/provisioner/product_provisioner.sh
+    conf_dir: wso2am-analytics-dashboard/confs
+
+  -
     hostname: wso2am
     box: wso2am
     ip: 172.28.128.4
@@ -39,6 +48,7 @@ servers:
       - 9443
       - 8280
       - 8243
+      - 9643
     ram: 2048
     cpu: 1
     provisioner_script: apim/provisioner/product_provisioner.sh
