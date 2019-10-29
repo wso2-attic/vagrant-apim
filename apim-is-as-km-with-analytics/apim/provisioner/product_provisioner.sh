@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright 2018 WSO2, Inc. (http://wso2.com)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,7 @@
 # set variables
 WSO2_SERVER=wso2am
 WSO2_SERVER_VERSION=3.0.0
-WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}*.zip
+WSO2_SERVER_PACK=${WSO2_SERVER}-${WSO2_SERVER_VERSION}.zip
 MYSQL_CONNECTOR=mysql-connector-java-*.jar
 JDK_ARCHIVE=jdk-8u*-linux-x64.tar.gz
 WORKING_DIRECTORY=/home/vagrant
@@ -39,7 +40,7 @@ if test ! -d ${JAVA_HOME}; then
 fi
 
 #setting up the server
-if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}; then
+if test ! -d ${WSO2_SERVER}-${WSO2_SERVER_VERSION}-beta; then
   unzip -q ${WORKING_DIRECTORY}/${WSO2_SERVER_PACK} -d ${WORKING_DIRECTORY}
   echo "Successfully set up ${WSO2_SERVER}-${WSO2_SERVER_VERSION} server"
 fi
