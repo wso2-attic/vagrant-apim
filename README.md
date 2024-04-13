@@ -1,4 +1,4 @@
-# Vagrantfile for WSO2 API Manager
+# [DEPRECATED] Vagrantfile for WSO2 API Manager
 
 In order to use Vagrant boxes with updates, you will need an active subscription from WSO2 since the Vagrant boxes hosted at vagrant.wso2.com contains the latest updates and fixes to WSO2 API Manager. You can sign up for a Free Trial Subscription [here](https://wso2.com/free-trial-subscription).
 
